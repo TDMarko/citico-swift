@@ -1,0 +1,487 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FC1739C7212ECC100002C566 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1739C6212ECC100002C566 /* AppDelegate.swift */; };
+		FC1739C9212ECC100002C566 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1739C8212ECC100002C566 /* ViewController.swift */; };
+		FC1739CC212ECC100002C566 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC1739CA212ECC100002C566 /* Main.storyboard */; };
+		FC1739CF212ECC100002C566 /* CiticoNotes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FC1739CD212ECC100002C566 /* CiticoNotes.xcdatamodeld */; };
+		FC1739D4212ECC130002C566 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC1739D2212ECC130002C566 /* LaunchScreen.storyboard */; };
+		FC1739DF212ECC130002C566 /* CiticoNotesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1739DE212ECC130002C566 /* CiticoNotesUITests.swift */; };
+		FC1739EA212F3EF90002C566 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC1739E9212F3EF90002C566 /* Media.xcassets */; };
+		FC1739EE21309C930002C566 /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1739ED21309C930002C566 /* AddNoteViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FC1739DB212ECC130002C566 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FC1739BB212ECC100002C566 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FC1739C2212ECC100002C566;
+			remoteInfo = CiticoNotes;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		FC1739C3212ECC100002C566 /* CiticoNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CiticoNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC1739C6212ECC100002C566 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FC1739C8212ECC100002C566 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FC1739CB212ECC100002C566 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FC1739CE212ECC100002C566 /* CiticoNotes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CiticoNotes.xcdatamodel; sourceTree = "<group>"; };
+		FC1739D3212ECC130002C566 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FC1739D5212ECC130002C566 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FC1739DA212ECC130002C566 /* CiticoNotesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CiticoNotesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC1739DE212ECC130002C566 /* CiticoNotesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CiticoNotesUITests.swift; sourceTree = "<group>"; };
+		FC1739E0212ECC130002C566 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FC1739E9212F3EF90002C566 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		FC1739ED21309C930002C566 /* AddNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FC1739C0212ECC100002C566 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FC1739D7212ECC130002C566 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FC1739BA212ECC100002C566 = {
+			isa = PBXGroup;
+			children = (
+				FC1739C5212ECC100002C566 /* CiticoNotes */,
+				FC1739DD212ECC130002C566 /* CiticoNotesUITests */,
+				FC1739C4212ECC100002C566 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FC1739C4212ECC100002C566 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FC1739C3212ECC100002C566 /* CiticoNotes.app */,
+				FC1739DA212ECC130002C566 /* CiticoNotesUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FC1739C5212ECC100002C566 /* CiticoNotes */ = {
+			isa = PBXGroup;
+			children = (
+				FC1739C6212ECC100002C566 /* AppDelegate.swift */,
+				FC1739C8212ECC100002C566 /* ViewController.swift */,
+				FC1739CA212ECC100002C566 /* Main.storyboard */,
+				FC1739D2212ECC130002C566 /* LaunchScreen.storyboard */,
+				FC1739E9212F3EF90002C566 /* Media.xcassets */,
+				FC1739D5212ECC130002C566 /* Info.plist */,
+				FC1739CD212ECC100002C566 /* CiticoNotes.xcdatamodeld */,
+				FC1739ED21309C930002C566 /* AddNoteViewController.swift */,
+			);
+			path = CiticoNotes;
+			sourceTree = "<group>";
+		};
+		FC1739DD212ECC130002C566 /* CiticoNotesUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FC1739DE212ECC130002C566 /* CiticoNotesUITests.swift */,
+				FC1739E0212ECC130002C566 /* Info.plist */,
+			);
+			path = CiticoNotesUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FC1739C2212ECC100002C566 /* CiticoNotes */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FC1739E3212ECC130002C566 /* Build configuration list for PBXNativeTarget "CiticoNotes" */;
+			buildPhases = (
+				FC1739BF212ECC100002C566 /* Sources */,
+				FC1739C0212ECC100002C566 /* Frameworks */,
+				FC1739C1212ECC100002C566 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CiticoNotes;
+			productName = CiticoNotes;
+			productReference = FC1739C3212ECC100002C566 /* CiticoNotes.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FC1739D9212ECC130002C566 /* CiticoNotesUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FC1739E6212ECC130002C566 /* Build configuration list for PBXNativeTarget "CiticoNotesUITests" */;
+			buildPhases = (
+				FC1739D6212ECC130002C566 /* Sources */,
+				FC1739D7212ECC130002C566 /* Frameworks */,
+				FC1739D8212ECC130002C566 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FC1739DC212ECC130002C566 /* PBXTargetDependency */,
+			);
+			name = CiticoNotesUITests;
+			productName = CiticoNotesUITests;
+			productReference = FC1739DA212ECC130002C566 /* CiticoNotesUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FC1739BB212ECC100002C566 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = "Marks Timofejevs";
+				TargetAttributes = {
+					FC1739C2212ECC100002C566 = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+					FC1739D9212ECC130002C566 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = FC1739C2212ECC100002C566;
+					};
+				};
+			};
+			buildConfigurationList = FC1739BE212ECC100002C566 /* Build configuration list for PBXProject "CiticoNotes" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FC1739BA212ECC100002C566;
+			productRefGroup = FC1739C4212ECC100002C566 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FC1739C2212ECC100002C566 /* CiticoNotes */,
+				FC1739D9212ECC130002C566 /* CiticoNotesUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FC1739C1212ECC100002C566 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC1739D4212ECC130002C566 /* LaunchScreen.storyboard in Resources */,
+				FC1739EA212F3EF90002C566 /* Media.xcassets in Resources */,
+				FC1739CC212ECC100002C566 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FC1739D8212ECC130002C566 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FC1739BF212ECC100002C566 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC1739EE21309C930002C566 /* AddNoteViewController.swift in Sources */,
+				FC1739C9212ECC100002C566 /* ViewController.swift in Sources */,
+				FC1739C7212ECC100002C566 /* AppDelegate.swift in Sources */,
+				FC1739CF212ECC100002C566 /* CiticoNotes.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FC1739D6212ECC130002C566 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC1739DF212ECC130002C566 /* CiticoNotesUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FC1739DC212ECC130002C566 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FC1739C2212ECC100002C566 /* CiticoNotes */;
+			targetProxy = FC1739DB212ECC130002C566 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FC1739CA212ECC100002C566 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FC1739CB212ECC100002C566 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FC1739D2212ECC130002C566 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FC1739D3212ECC130002C566 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FC1739E1212ECC130002C566 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FC1739E2212ECC130002C566 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FC1739E4212ECC130002C566 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9DNALP83MR;
+				INFOPLIST_FILE = CiticoNotes/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = tdmarko.CiticoNotes;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		FC1739E5212ECC130002C566 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9DNALP83MR;
+				INFOPLIST_FILE = CiticoNotes/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = tdmarko.CiticoNotes;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		FC1739E7212ECC130002C566 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = CiticoNotesUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = tdmarko.CiticoNotesUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CiticoNotes;
+			};
+			name = Debug;
+		};
+		FC1739E8212ECC130002C566 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = CiticoNotesUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = tdmarko.CiticoNotesUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CiticoNotes;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FC1739BE212ECC100002C566 /* Build configuration list for PBXProject "CiticoNotes" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FC1739E1212ECC130002C566 /* Debug */,
+				FC1739E2212ECC130002C566 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FC1739E3212ECC130002C566 /* Build configuration list for PBXNativeTarget "CiticoNotes" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FC1739E4212ECC130002C566 /* Debug */,
+				FC1739E5212ECC130002C566 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FC1739E6212ECC130002C566 /* Build configuration list for PBXNativeTarget "CiticoNotesUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FC1739E7212ECC130002C566 /* Debug */,
+				FC1739E8212ECC130002C566 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FC1739CD212ECC100002C566 /* CiticoNotes.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FC1739CE212ECC100002C566 /* CiticoNotes.xcdatamodel */,
+			);
+			currentVersion = FC1739CE212ECC100002C566 /* CiticoNotes.xcdatamodel */;
+			path = CiticoNotes.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = FC1739BB212ECC100002C566 /* Project object */;
+}
