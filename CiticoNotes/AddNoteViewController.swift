@@ -59,7 +59,7 @@ class AddNoteViewController: UIViewController {
     }
     
     func saveNote() {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate //TODO: reusable
         let context = appDelegate.persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: "Notes", in: context)
         let newUser = NSManagedObject(entity: entity!, insertInto: context)
@@ -80,7 +80,34 @@ class AddNoteViewController: UIViewController {
     }
     
     func deleteNote() {
-        let context = ( UIApplication.shared.delegate as! AppDelegate ).persistentContainer.viewContext
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate //TODO: reusable
+        let context = appDelegate.persistentContainer.viewContext
+        let requestDel = NSFetchRequest<NSFetchRequestResult>(entityName: "Notes")
+        requestDel.returnsObjectsAsFaults = false
+        
+        let predicateDel = NSPredicate(format: "note contains[c] %@", note!) //TODO: delete by ID, this is stupid
+        requestDel.predicate = predicateDel
+        
+        do {
+            let arrUsrObj = try context.fetch(requestDel)
+            for usrObj in arrUsrObj as! [NSManagedObject] {
+                context.delete(usrObj)
+            }
+            print("\(note) is deleted")
+        } catch {
+            print("Failed")
+        }
+        
+        do {
+            try context.save()
+            
+            self.dismiss(animated: true, completion: nil)
+        } catch {
+            print("Failed saving note")
+        }
+        
+        // DELETE ALL ITEMS IN CORE DATA, SAVED FOR LATER
+        /*let context = ( UIApplication.shared.delegate as! AppDelegate ).persistentContainer.viewContext //TODO: reusable
         let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Notes")
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
         
@@ -93,27 +120,16 @@ class AddNoteViewController: UIViewController {
             print("All notes deleted")
         } catch {
             print ("TFailed deleting note")
-        }
+        }*/
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
-extension UIViewController { //TODO: add me to proper place
+extension UIViewController {
     func hideKeyboardWhenTappedAround() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
         tap.cancelsTouchesInView = false

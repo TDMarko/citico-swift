@@ -13,7 +13,7 @@ import LocalAuthentication
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var cellText: UILabel!
+    @IBOutlet weak var cellText: UILabel! //TODO: not linked, fix me or delete
     
     struct Note {
         var date: Date
@@ -23,9 +23,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     var notes = [Int: Note]()
     
-    override func viewWillAppear(_ animated: Bool) { //TODO: delete me
+    override func viewWillAppear(_ animated: Bool) {
         self.getNotes()
-        self.tableView.reloadData()
+        
+        if (notes.count == 0) {
+            tableView.isHidden = true
+        } else {
+            tableView.isHidden = false
+            tableView.tableFooterView = UIView()
+            self.tableView.reloadData()
+        }
     }
     
     override func viewDidLoad() {
@@ -42,11 +49,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let context = appDelegate.persistentContainer.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Notes")
         
+        print("we are here")
+        
         request.returnsObjectsAsFaults = false
         
         do {
             let result = try context.fetch(request)
             var i = 0
+            print(result)
+           // if (result.isEmpty) {
+                notes.removeAll()
+           // }
             
             for data in result as! [NSManagedObject] {
                 notes[i] = Note(date: data.value(forKey: "date") as! Date, note:  data.value(forKey: "note") as! String, isPrivate:  (data.value(forKey: "isPrivate") as! Bool))
@@ -69,17 +82,22 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "notesCell")!
         var text = ""
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yyyy"
+        let dateString = dateFormatter.string(from: notes[indexPath.row]?.date as! Date)
         
         if (notes[indexPath.row]?.isPrivate)! {
             text = "Note is private! Tap to view!"
             cell.textLabel?.textColor = UIColor.lightGray
-
         } else {
             text = (notes[indexPath.row]?.note)!
         }
         
         cell.textLabel?.text = text
-        
+        cell.detailTextLabel?.text = dateString
+        cell.detailTextLabel?.textColor = UIColor.lightGray
+
         return cell
     }
 
@@ -103,7 +121,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let addNoteController = mainStoryboard.instantiateViewController(withIdentifier: "addNoteViewController")
         
         if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
-            let reason = "Identify yourself!"
+            let reason = "This note ir private!"
             
             context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) {
                 [unowned self] success, authenticationError in
@@ -119,7 +137,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 }
             }
         } else {
-            let ac = UIAlertController(title: "Touch ID not available", message: "Your device is not configured for Touch ID.", preferredStyle: .alert)
+            let ac = UIAlertController(title: "Touch ID not available", message: "Your device is not configured for Touch ID. Probably I sould ask for phone code here..", preferredStyle: .alert)
             ac.addAction(UIAlertAction(title: "OK", style: .default))
             present(ac, animated: true)
         }
