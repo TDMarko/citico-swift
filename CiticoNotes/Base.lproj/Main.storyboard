@@ -171,7 +171,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="146"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What's the plan?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ib-f1-Pek">
-                                        <rect key="frame" x="20" y="95" width="335" height="41"/>
+                                        <rect key="frame" x="20" y="95" width="243.5" height="41"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -188,12 +188,26 @@
                                             <action selector="buttonDismissAddNote:" destination="VHY-uV-ix5" eventType="touchUpInside" id="RL3-3f-PHt"/>
                                         </connections>
                                     </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h5Y-9b-hfm">
+                                        <rect key="frame" x="271.5" y="93" width="91.5" height="38"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="38" id="duU-5a-xqc"/>
+                                        </constraints>
+                                        <state key="normal" title="Delete?">
+                                            <color key="titleColor" red="1" green="0.082027008935417034" blue="0.048008477954186835" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="actionDeleteNote:" destination="Cid-eT-TGW" eventType="touchUpInside" id="PLi-Vs-vcD"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.094117647058823528" green="0.10196078431372549" blue="0.34509803921568627" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="146" id="9qt-bM-Lgf"/>
+                                    <constraint firstAttribute="trailing" secondItem="h5Y-9b-hfm" secondAttribute="trailing" constant="12" id="AoV-lB-xPc"/>
+                                    <constraint firstAttribute="bottom" secondItem="h5Y-9b-hfm" secondAttribute="bottom" constant="15" id="CRP-bx-fm7"/>
                                     <constraint firstAttribute="bottom" secondItem="0ib-f1-Pek" secondAttribute="bottom" constant="10" id="D30-TX-hDl"/>
-                                    <constraint firstAttribute="trailing" secondItem="0ib-f1-Pek" secondAttribute="trailing" constant="20" id="NRa-9x-qrx"/>
+                                    <constraint firstItem="h5Y-9b-hfm" firstAttribute="leading" secondItem="0ib-f1-Pek" secondAttribute="trailing" constant="8" id="DZm-gD-Fyv"/>
                                     <constraint firstAttribute="trailing" secondItem="fiA-xr-1R7" secondAttribute="trailing" constant="12" id="NVs-cw-7fR"/>
                                     <constraint firstItem="0ib-f1-Pek" firstAttribute="leading" secondItem="vSv-oG-WRl" secondAttribute="leading" constant="20" id="Zlj-NP-Oda"/>
                                     <constraint firstAttribute="bottom" secondItem="fiA-xr-1R7" secondAttribute="bottom" constant="81" id="nDS-tY-8Rj"/>
@@ -265,6 +279,7 @@
                     <connections>
                         <outlet property="buttonAddNote" destination="e07-qm-4rw" id="Q0l-Kq-WJz"/>
                         <outlet property="buttonCloseAddNote" destination="fiA-xr-1R7" id="Chh-H5-Tsh"/>
+                        <outlet property="buttonDeleteNote" destination="h5Y-9b-hfm" id="RpF-fB-4M3"/>
                         <outlet property="inputNoteContent" destination="7og-GY-ISE" id="S2N-E4-NC7"/>
                         <outlet property="labelTitle" destination="0ib-f1-Pek" id="iKk-Pm-euq"/>
                         <outlet property="switchIsPrivate" destination="1Sm-Kl-RUL" id="Qts-Sn-DnP"/>

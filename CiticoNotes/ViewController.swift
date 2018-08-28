@@ -13,9 +13,9 @@ import LocalAuthentication
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var cellText: UILabel! //TODO: not linked, fix me or delete
     
     struct Note {
+        var noteId: Int
         var date: Date
         var note: String
         var isPrivate: Bool
@@ -26,6 +26,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewWillAppear(_ animated: Bool) {
         self.getNotes()
         
+        // Show bottom layer view if there is no notes
         if (notes.count == 0) {
             tableView.isHidden = true
         } else {
@@ -38,33 +39,37 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Delegate to UITableView for table actions
         tableView.delegate = self
         tableView.dataSource = self
         
         self.getNotes()
     }
 
+    // Get all notes from CoreData entity
     func getNotes() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Notes")
-        
-        print("we are here")
         
         request.returnsObjectsAsFaults = false
         
         do {
             let result = try context.fetch(request)
             var i = 0
-            print(result)
-           // if (result.isEmpty) {
-                notes.removeAll()
-           // }
+
+            notes.removeAll()
             
             for data in result as! [NSManagedObject] {
-                notes[i] = Note(date: data.value(forKey: "date") as! Date, note:  data.value(forKey: "note") as! String, isPrivate:  (data.value(forKey: "isPrivate") as! Bool))
+                // TODO: add sorting
+                notes[i] = Note(
+                    noteId: data.value(forKey: "noteId") as! Int,
+                    date: data.value(forKey: "date") as! Date,
+                    note:  data.value(forKey: "note") as! String,
+                    isPrivate:  (data.value(forKey: "isPrivate") as! Bool)
+                )
                 
-                i = i + 1 //TODO: fix me
+                i += 1
             }
         } catch {
             print("Failed")
@@ -87,6 +92,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         dateFormatter.dateFormat = "dd.MM.yyyy"
         let dateString = dateFormatter.string(from: notes[indexPath.row]?.date as! Date)
         
+        // Hide private note message
         if (notes[indexPath.row]?.isPrivate)! {
             text = "Note is private! Tap to view!"
             cell.textLabel?.textColor = UIColor.lightGray
@@ -104,21 +110,26 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let addNoteController = mainStoryboard.instantiateViewController(withIdentifier: "addNoteViewController") as! AddNoteViewController
-        addNoteController.note = notes[indexPath.row]?.note
-        addNoteController.noteIndex = indexPath.row
         
+        addNoteController.noteId = notes[indexPath.row]?.noteId
+        addNoteController.note = notes[indexPath.row]?.note
+        
+        // Private note requires user to access with TouchId
         if (notes[indexPath.row]?.isPrivate)! {
-            self.authenticateUser()
+            self.authenticateUser(indexPath: indexPath.row)
         } else {
             self.present(addNoteController, animated: true, completion: nil)
         }
     }
     
-    func authenticateUser() {
+    func authenticateUser(indexPath: Int) {
         let context = LAContext()
         var error: NSError?
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let addNoteController = mainStoryboard.instantiateViewController(withIdentifier: "addNoteViewController")
+        let addNoteController = mainStoryboard.instantiateViewController(withIdentifier: "addNoteViewController") as! AddNoteViewController
+        
+        addNoteController.noteId = notes[indexPath]?.noteId
+        addNoteController.note = notes[indexPath]?.note
         
         if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
             let reason = "This note ir private!"
@@ -130,7 +141,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     if success {
                         self.present(addNoteController, animated: true, completion: nil)
                     } else {
-                        let ac = UIAlertController(title: "Authentication failed", message: "Sorry!", preferredStyle: .alert)
+                        let ac = UIAlertController(title: "Authentication failed", message: "You shall not pass!", preferredStyle: .alert)
                         ac.addAction(UIAlertAction(title: "OK", style: .default))
                         self.present(ac, animated: true)
                     }
@@ -148,4 +159,3 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // Dispose of any resources that can be recreated.
     }
 }
-

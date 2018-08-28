@@ -15,6 +15,8 @@
 		FC1739DF212ECC130002C566 /* CiticoNotesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1739DE212ECC130002C566 /* CiticoNotesUITests.swift */; };
 		FC1739EA212F3EF90002C566 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC1739E9212F3EF90002C566 /* Media.xcassets */; };
 		FC1739EE21309C930002C566 /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1739ED21309C930002C566 /* AddNoteViewController.swift */; };
+		FC17E1DA213505C0007A8614 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC17E1D9213505C0007A8614 /* UIColor+Hex.swift */; };
+		FC17E1DC2135062B007A8614 /* UIViewController+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC17E1DB2135062B007A8614 /* UIViewController+Keyboard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,8 @@
 		FC1739E0212ECC130002C566 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC1739E9212F3EF90002C566 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		FC1739ED21309C930002C566 /* AddNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
+		FC17E1D9213505C0007A8614 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
+		FC17E1DB2135062B007A8614 /* UIViewController+Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Keyboard.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,14 +85,15 @@
 		FC1739C5212ECC100002C566 /* CiticoNotes */ = {
 			isa = PBXGroup;
 			children = (
+				FC17E1D821350591007A8614 /* extensions */,
 				FC1739C6212ECC100002C566 /* AppDelegate.swift */,
 				FC1739C8212ECC100002C566 /* ViewController.swift */,
+				FC1739ED21309C930002C566 /* AddNoteViewController.swift */,
 				FC1739CA212ECC100002C566 /* Main.storyboard */,
 				FC1739D2212ECC130002C566 /* LaunchScreen.storyboard */,
 				FC1739E9212F3EF90002C566 /* Media.xcassets */,
 				FC1739D5212ECC130002C566 /* Info.plist */,
 				FC1739CD212ECC100002C566 /* CiticoNotes.xcdatamodeld */,
-				FC1739ED21309C930002C566 /* AddNoteViewController.swift */,
 			);
 			path = CiticoNotes;
 			sourceTree = "<group>";
@@ -100,6 +105,15 @@
 				FC1739E0212ECC130002C566 /* Info.plist */,
 			);
 			path = CiticoNotesUITests;
+			sourceTree = "<group>";
+		};
+		FC17E1D821350591007A8614 /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FC17E1D9213505C0007A8614 /* UIColor+Hex.swift */,
+				FC17E1DB2135062B007A8614 /* UIViewController+Keyboard.swift */,
+			);
+			path = extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,9 +218,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC1739EE21309C930002C566 /* AddNoteViewController.swift in Sources */,
+				FC17E1DC2135062B007A8614 /* UIViewController+Keyboard.swift in Sources */,
 				FC1739C9212ECC100002C566 /* ViewController.swift in Sources */,
 				FC1739C7212ECC100002C566 /* AppDelegate.swift in Sources */,
 				FC1739CF212ECC100002C566 /* CiticoNotes.xcdatamodeld in Sources */,
+				FC17E1DA213505C0007A8614 /* UIColor+Hex.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
