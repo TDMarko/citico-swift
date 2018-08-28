@@ -90,7 +90,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yyyy"
-        let dateString = dateFormatter.string(from: notes[indexPath.row]?.date as! Date)
+        let dateString = dateFormatter.string(from: notes[indexPath.row]!.date)
         
         // Hide private note message
         if (notes[indexPath.row]?.isPrivate)! {

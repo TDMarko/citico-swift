@@ -33,7 +33,10 @@ class AddNoteViewController: UIViewController, UITextViewDelegate {
     @IBAction func actionAddNote(_ sender: Any) {
         // Show alert if user haven't entered a note
         if (inputNoteContent.text.count == 0) {
-            self.presentAlert()
+            let alert = UIAlertController(title: "Alert", message: "Please enter note text!", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default))
+            
+            self.present(alert, animated: true, completion: nil)
             
             return
         }
@@ -53,6 +56,9 @@ class AddNoteViewController: UIViewController, UITextViewDelegate {
     @IBAction func actionDeleteNote(_ sender: Any) {
         self.deleteNote()
     }
+    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    lazy var context = appDelegate.persistentContainer.viewContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,8 +82,6 @@ class AddNoteViewController: UIViewController, UITextViewDelegate {
     }
     
     func saveNote() {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate //TODO: reusable
-        let context = appDelegate.persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: "Notes", in: context)
         let newNote = NSManagedObject(entity: entity!, insertInto: context)
         
@@ -100,48 +104,62 @@ class AddNoteViewController: UIViewController, UITextViewDelegate {
     }
     
     func updateNote() {
-        print("update")
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Notes")
+        request.predicate = NSPredicate(format: "noteId = %d", self.noteId!)
+        
+        do {
+            let results = try context.fetch(request) as? [NSManagedObject]
+            if results?.count != 0 {
+                results![0].setValue(inputNoteContent?.text, forKey: "note")
+                
+                self.dismiss(animated: true, completion: nil)
+                
+                print("Note updated!")
+            }
+        } catch {
+            print("Failed updating note")
+        }
     }
     
     func deleteNote() {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate //TODO: reusable
-        let context = appDelegate.persistentContainer.viewContext
-        let requestDel = NSFetchRequest<NSFetchRequestResult>(entityName: "Notes")
-        requestDel.returnsObjectsAsFaults = false
-        
-        // Deleting note by it's noteId
-        // TODO: standart Core Data objectId can be used here
-        let predicateDel = NSPredicate(format: "noteId = %d", noteId!)
-        requestDel.predicate = predicateDel
-        
-        do {
-            let arrUsrObj = try context.fetch(requestDel)
-            for usrObj in arrUsrObj as! [NSManagedObject] {
-                context.delete(usrObj)
-            }
-            print("\(String(describing: note)) is deleted")
-        } catch {
-            print("Failed")
-        }
-        
-        do {
-            try context.save()
+        let alert = UIAlertController(title: "Alert", message: "Delete this note?", preferredStyle: UIAlertControllerStyle.alert)
+
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+            let entityDelete = NSFetchRequest<NSFetchRequestResult>(entityName: "Notes")
+            entityDelete.returnsObjectsAsFaults = false
             
-            self.dismiss(animated: true, completion: nil)
-        } catch {
-            print("Failed saving note")
-        }
+            // Deleting note by it's noteId
+            // TODO: standart Core Data objectId can be used here
+            let predicateDelete = NSPredicate(format: "noteId = %d", self.noteId!)
+            entityDelete.predicate = predicateDelete
+            
+            do {
+                let arrUsrObj = try self.context.fetch(entityDelete)
+                for usrObj in arrUsrObj as! [NSManagedObject] {
+                    self.context.delete(usrObj)
+                }
+                print("\(String(describing: self.note)) is deleted")
+            } catch {
+                print("Failed")
+            }
+            
+            do {
+                try self.context.save()
+                
+                self.dismiss(animated: true, completion: nil)
+            } catch {
+                print("Failed saving note")
+            }
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (action: UIAlertAction!) in
+            return
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
         viewButton.backgroundColor = UIColor(rgb: 0x8ECC32)
-    }
-
-    func presentAlert() {
-        let alert = UIAlertController(title: "Alert", message: "Please enter note text!", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
-        
-        self.present(alert, animated: true, completion: nil)
     }
     
     // Func to make auto increament noteId field
